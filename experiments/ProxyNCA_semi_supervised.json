@@ -1,0 +1,49 @@
+{
+    "name": "str('ProxyNCA_semi_supervised')",
+    "gpu_id": "int(0)",
+    "transform_parameters": {
+        "rgb_to_bgr": "True", 
+        "intensity_scale": "[[0, 1], [0, 255]]",
+        "mean": "[104, 117, 128]",
+        "std": "[1, 1, 1]"
+    },
+    "criterion": {
+        "type": "lossfn.ProxyNCA",
+        "args": {
+            "smoothing_const": "0.1",
+            "scaling_x": "3",
+            "scaling_p": "3"
+        }
+    },
+    "model": {
+        "name": "str('inception')",
+        "sz_embedding": "int(64)",
+        "pretrained": "True"
+    },
+    "lr_scheduler": {
+        "type": "torch.optim.lr_scheduler.ExponentialLR",
+        "args": {
+            "gamma": "0.94"
+        }
+    },
+    "opt": {
+        "type": "torch.optim.Adam",
+        "args": {
+            "embedding": {
+                "weight_decay": "0.0"
+            },
+            "backbone": {
+                "weight_decay": "0.0"
+            },
+            "proxynca": {
+                "weight_decay": "0.0",
+                "lr": "1."
+            },
+            "base": {
+                "lr": "0.0005",
+                "lr": "0.0005",
+                "eps": "1"
+            }
+        }
+    }
+}

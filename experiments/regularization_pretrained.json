@@ -1,0 +1,52 @@
+{
+    "name": "str('regularization')",
+    "gpu_id": "int(0)",
+    "transform_parameters": {
+        "rgb_to_bgr": "True", 
+        "intensity_scale": "[[0, 1], [0, 255]]",
+        "mean": "[104, 117, 128]",
+        "std": "[1, 1, 1]"
+    },
+    "criterion": {
+        "type": "str('regularization')",
+        "args": {
+            "target_activation":"float(0.85)", 
+            "scaling_rate":"float(0.00085)", 
+            "s_mul":"float(-0.9)",
+            "compet_winner_weight":"float(2.4)", 
+            "normalize":"bool(False)",
+            "activation": "str('relu')"
+        }
+    },
+    "model": {
+        "name": "str('inception')",
+        "sz_embedding": "int(1024)",
+        "pretrained": "True"
+    },
+    "lr_scheduler": {
+        "type": "torch.optim.lr_scheduler.ExponentialLR",
+        "args": {
+            "gamma": "0.1"
+        }
+    },
+    "opt": {
+        "type": "torch.optim.SGD",
+        "args": {
+            "embedding": {
+                "weight_decay": "0.0",
+                "lr": "0.01"
+            },
+            "backbone": {
+                "weight_decay": "0.0",
+                "lr": "0.01"
+            },
+            "proxynca": {
+                "weight_decay": "0.0",
+                "lr": "0.01"
+            },
+            "base": {
+                "lr": "0.01"
+            }
+        }
+    }
+}

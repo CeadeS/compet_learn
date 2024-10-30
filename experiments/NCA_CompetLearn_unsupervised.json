@@ -1,0 +1,58 @@
+{
+    "name": "str('NCA_CompetLearn_unsupervised')",
+    "gpu_id": "int(0)",
+    "transform_parameters": {
+        "rgb_to_bgr": "True", 
+        "intensity_scale": "[[0, 1], [0, 255]]",
+        "mean": "[104, 117, 128]",
+        "std": "[1, 1, 1]"
+    },
+    "criterion": {
+        "type": "str('mix')",
+        "args": {},
+        "args_cl": {
+            "loss_weight": "float(0.01)",
+            "target_activation":"float(0.85)", 
+            "scaling_rate":"float(0.00085)", 
+            "s_mul":"float(-0.9)",
+            "compet_winner_weight":"float(2.4)", 
+            "normalize":"bool(False)",
+            "activation": "str('relu')"
+        },
+        "args_nca": {
+            "smoothing_const": "0.1",
+            "scaling_x": "1",
+            "scaling_p": "8"
+        }
+    },
+    "model": {
+        "name": "str('inception')",
+        "sz_embedding": "int(64)"
+    },
+    "lr_scheduler": {
+        "type": "torch.optim.lr_scheduler.ExponentialLR",
+        "args": {
+            "gamma": "0.94"
+        }
+    },
+    "opt": {
+        "type": "torch.optim.Adam",
+        "args": {
+            "embedding": {
+                "weight_decay": "0.0"
+            },
+            "backbone": {
+                "weight_decay": "0.0"
+            },
+            "proxynca": {
+                "weight_decay": "0.0",
+                "lr": "5.0"
+            },
+            "base": {
+                "lr": "0.045",
+                "lr": "0.045",
+                "eps": "1.0"
+            }
+        }
+    }
+}
