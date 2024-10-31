@@ -1,0 +1,46 @@
+{
+    "dataset": {
+        "cub": {
+            "classes": {
+                "train": "range(0, 100)",
+                "eval": "range(100, 200)"
+            },
+            "root": "str('/home/mhofmann/nas/home/py_projects/data/cub/CUB_200_2011')"
+        },
+        "cars": {
+            "classes": {
+                "train": "range(0, 98)",
+                "eval": "range(98, 196)"
+            },
+            "root": "str('/home/mhofmann/nas/home/py_projects/data/cars196')"
+        },
+        "sop": {
+            "classes": {
+                "train": "range(0, 11318)",
+                "eval": "range(11318, 22634)"
+            },
+            "root": "str('/home/mhofmann/nas/home/py_projects/data/Stanford_Online_Products')"
+        },
+        "cifar10": {
+            "classes": {
+                "train": "range(0, 8)",
+                "eval": "range(8, 10)"
+            },
+            "root": "str('/home/mhofmann/nas/home/py_projects/data/')"
+        },
+        "cifar100": {
+            "classes": {
+                "train": "range(0, 80)",
+                "eval": "range(80, 100)"
+            },
+            "root": "str('/home/mhofmann/nas/home/py_projects/data/')"
+        },
+        "mnist": {
+            "classes": {
+                "train": "range(0, 8)",
+                "eval": "range(8, 10)"
+            },
+            "root": "str('/home/mhofmann/nas/home/py_projects/data/')"
+        }
+    }
+}
